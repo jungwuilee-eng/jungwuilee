@@ -22,18 +22,85 @@
     /* ── HERO ── */
     .hero {
       width: 100%;
-      background: #f8f9fb;
+      background: linear-gradient(135deg, #f5f0e8 0%, #fdf8f0 50%, #eef5f3 100%);
       display: flex;
+      align-items: center;
       justify-content: center;
-      padding: 40px 24px;
+      gap: 0;
+      min-height: 480px;
+      overflow: hidden;
     }
-    .hero img {
+    .hero-side {
+      flex: 1;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-side-left { align-items: flex-end; text-align: right; }
+    .hero-side-right { align-items: flex-start; text-align: left; }
+    .hero-side .tag {
+      display: inline-block;
+      background: #1a3a5c;
+      color: #ffd166;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .hero-side h2 {
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 900;
+      color: #1a3a5c;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+    .hero-side h2 span { color: #c8960c; }
+    .hero-side p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.8;
+    }
+    .hero-side .stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .hero-side-right .stat-row { align-items: flex-start; }
+    .hero-side-left .stat-row { align-items: flex-end; }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a3a5c;
+      white-space: nowrap;
+    }
+    .stat-item .si { font-size: 18px; }
+    .hero-img {
+      width: 360px;
+      flex-shrink: 0;
+    }
+    .hero-img img {
       width: 100%;
-      max-width: 600px;
       height: auto;
       display: block;
-      border-radius: 16px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; min-height: auto; }
+      .hero-side { padding: 32px 24px; align-items: center; text-align: center; }
+      .hero-side-left { order: 2; }
+      .hero-side-right { order: 3; }
+      .hero-img { width: 100%; max-width: 400px; order: 1; }
+      .hero-side .stat-row { align-items: center; }
     }
 
     /* ── COMMON ── */
@@ -326,7 +393,30 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
-  <img src="KakaoTalk_20260617_212013127.png" alt="성공경험자 이정의 지사장" />
+  <div class="hero-side hero-side-left">
+    <span class="tag">✦ 성공경험자 ✦</span>
+    <h2>수많은 시행착오를 거쳐<br>완성한 <span>1인 학원의<br>성공 시스템</span></h2>
+    <p>직접 경험하고 검증한 시스템을 공유합니다.<br>현장에서 검증된 시스템만이<br>원장님의 시간과 성과를 바꿉니다.</p>
+    <div class="stat-row">
+      <div class="stat-item"><span class="si">⏳</span> 22년 교육 현장 경력</div>
+      <div class="stat-item"><span class="si">👑</span> 전국 1등 가맹원장</div>
+      <div class="stat-item"><span class="si">📚</span> 4가지 검증된 프로그램</div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="KakaoTalk_20260617_212013127.png" alt="성공경험자 이정의 지사장" />
+  </div>
+  <div class="hero-side hero-side-right">
+    <span class="tag">Check!</span>
+    <h2>원장님의<br><span>성공을</span><br>응원합니다!</h2>
+    <p>아이를 바꾸는 프로그램<br>직접 만드는 홍보 시스템<br>혼자서도 성장하는 운영법</p>
+    <div class="stat-row">
+      <div class="stat-item"><span class="si">📖</span> 책통클럽 전국 가입 지사장</div>
+      <div class="stat-item"><span class="si">🏆</span> 공필왕 전국 가입 본부장</div>
+      <div class="stat-item"><span class="si">📣</span> 휘파람 전국 가입 본부장</div>
+      <div class="stat-item"><span class="si">💻</span> 바빠스마트클래스 지사장</div>
+    </div>
+  </div>
 </section>
 
 <!-- ── STORY ── -->
