@@ -3,311 +3,381 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>이정의 본부장 소개</title>
+  <title>이정의 지사장 | 1인 학원 성공 코칭</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       font-weight: 400;
       background: #f8f9fb;
       color: #1a1a2e;
       letter-spacing: -0.3px;
       word-break: keep-all;
     }
+    a { text-decoration: none; color: inherit; }
 
     /* ── HERO ── */
     .hero {
       background: linear-gradient(135deg, #1a3a5c 0%, #0f6b8a 60%, #14a88e 100%);
       color: white;
-      padding: 80px 24px 100px;
-      text-align: center;
-      position: relative;
+      padding: 0;
+      display: flex;
+      align-items: stretch;
+      min-height: 520px;
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");
+    .hero-left {
+      flex: 1;
+      padding: 64px 48px 64px 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .hero-badge {
       display: inline-block;
       background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.35);
       border-radius: 30px;
-      padding: 8px 22px;
-      font-size: 14px;
+      padding: 6px 18px;
+      font-size: 13px;
       letter-spacing: 2px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      width: fit-content;
     }
     .hero h1 {
-      font-size: clamp(38px, 8vw, 64px);
+      font-size: clamp(36px, 5vw, 58px);
       font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 12px;
+      line-height: 1.15;
+      margin-bottom: 10px;
     }
     .hero h1 span { color: #ffd166; }
-    .hero .sub {
+    .hero .title-sub {
       font-size: 18px;
+      font-weight: 500;
       opacity: 0.85;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+    }
+    .hero-desc {
+      font-size: 15px;
+      opacity: 0.75;
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 420px;
     }
     .hero-stats {
       display: flex;
-      justify-content: center;
-      gap: 40px;
+      gap: 32px;
       flex-wrap: wrap;
-      margin-top: 20px;
     }
-    .stat { text-align: center; }
-    .stat .num {
-      font-size: 40px;
-      font-weight: 900;
-      color: #ffd166;
-      display: block;
+    .stat .num { font-size: 32px; font-weight: 900; color: #ffd166; display: block; }
+    .stat .label { font-size: 12px; opacity: 0.75; margin-top: 2px; }
+    .hero-right {
+      width: 340px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
     }
-    .stat .label { font-size: 13px; opacity: 0.8; margin-top: 2px; }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
 
-    /* ── STORY ── */
-    .section { padding: 72px 24px; max-width: 860px; margin: 0 auto; }
+    /* ── COMMON ── */
+    .section { padding: 72px 24px; max-width: 900px; margin: 0 auto; }
     .section-title {
       text-align: center;
       font-size: 28px;
       font-weight: 800;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       color: #1a3a5c;
     }
+    .section-title span { color: #0f6b8a; }
     .section-desc {
       text-align: center;
-      font-size: 16px;
+      font-size: 15px;
       color: #666;
       margin-bottom: 48px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
+    .bg-white { background: white; }
+    .bg-light { background: #f0f6f8; }
+    .bg-dark { background: linear-gradient(135deg, #1a3a5c, #0f6b8a); color: white; }
 
-    .story-timeline {
-      position: relative;
-      padding-left: 32px;
-    }
+    /* ── STORY ── */
+    .story-timeline { position: relative; padding-left: 32px; }
     .story-timeline::before {
       content: '';
       position: absolute;
-      left: 12px;
-      top: 0; bottom: 0;
+      left: 12px; top: 0; bottom: 0;
       width: 3px;
       background: linear-gradient(to bottom, #0f6b8a, #14a88e);
       border-radius: 2px;
     }
-    .story-item {
-      position: relative;
-      margin-bottom: 36px;
-    }
+    .story-item { position: relative; margin-bottom: 36px; }
     .story-item::before {
       content: '';
       position: absolute;
-      left: -26px;
-      top: 6px;
+      left: -26px; top: 6px;
       width: 14px; height: 14px;
       border-radius: 50%;
       background: #ffd166;
       border: 3px solid #0f6b8a;
     }
     .story-item .emoji { font-size: 22px; margin-bottom: 6px; }
-    .story-item h3 {
-      font-size: 19px;
-      font-weight: 800;
-      color: #1a3a5c;
-      margin-bottom: 4px;
-    }
-    .story-item p {
-      font-size: 15px;
-      color: #555;
-      line-height: 1.7;
-    }
+    .story-item h3 { font-size: 19px; font-weight: 800; color: #1a3a5c; margin-bottom: 4px; }
+    .story-item p { font-size: 15px; color: #555; line-height: 1.8; }
 
     /* ── QUOTE ── */
-    .quote-section {
-      background: linear-gradient(135deg, #1a3a5c, #0f6b8a);
-      color: white;
+    .quote-wrap {
       text-align: center;
       padding: 72px 24px;
     }
-    .quote-section blockquote {
+    .quote-wrap blockquote {
       font-size: clamp(20px, 4vw, 30px);
       font-weight: 800;
-      line-height: 1.5;
-      max-width: 600px;
+      line-height: 1.6;
+      max-width: 580px;
       margin: 0 auto 16px;
     }
-    .quote-section blockquote span { color: #ffd166; }
-    .quote-section .author { font-size: 14px; opacity: 0.7; }
+    .quote-wrap blockquote span { color: #ffd166; }
+    .quote-wrap .author { font-size: 14px; opacity: 0.65; }
 
-    /* ── ACHIEVEMENT ── */
-    .achievement-grid {
+    /* ── LIFE SECTION ── */
+    .life-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .life-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .life-card .icon-big { font-size: 40px; margin-bottom: 16px; }
+    .life-card h3 { font-size: 20px; font-weight: 800; color: #1a3a5c; margin-bottom: 8px; }
+    .life-card p { font-size: 14px; color: #666; line-height: 1.8; }
+    .schedule-list { margin-top: 16px; }
+    .schedule-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .stime { font-weight: 700; color: #0f6b8a; min-width: 48px; font-size: 15px; }
+    .slabel { color: #333; }
+    .day-badges {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .day-badge {
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .day-work { background: #e8f4f8; color: #0f6b8a; }
+    .day-off { background: #fff3e0; color: #e67e22; }
+
+    /* ── PROGRAMS ── */
+    .programs-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
     }
-    .achievement-card {
+    .prog-card {
       background: white;
-      border-radius: 16px;
-      padding: 32px 20px;
-      text-align: center;
+      border-radius: 20px;
+      padding: 32px 22px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-      transition: transform .2s;
-    }
-    .achievement-card:hover { transform: translateY(-4px); }
-    .achievement-card .icon { font-size: 36px; margin-bottom: 12px; }
-    .achievement-card h3 { font-size: 15px; font-weight: 700; color: #1a3a5c; margin-bottom: 6px; }
-    .achievement-card p { font-size: 13px; color: #888; line-height: 1.6; }
-
-    /* ── STEPS ── */
-    .steps-bg { background: #f0f6f8; }
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-    }
-    .step-card {
-      background: white;
-      border-radius: 16px;
-      padding: 28px 20px;
       text-align: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: transform .2s;
       position: relative;
       overflow: hidden;
     }
-    .step-card::after {
+    .prog-card:hover { transform: translateY(-5px); }
+    .prog-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 4px;
+      height: 5px;
     }
-    .step-card:nth-child(1)::after { background: #4a90d9; }
-    .step-card:nth-child(2)::after { background: #27ae60; }
-    .step-card:nth-child(3)::after { background: #e67e22; }
-    .step-card:nth-child(4)::after { background: #8e44ad; }
-
-    .step-num {
+    .prog-card:nth-child(1)::before { background: linear-gradient(90deg, #4a90d9, #0f6b8a); }
+    .prog-card:nth-child(2)::before { background: linear-gradient(90deg, #27ae60, #1abc9c); }
+    .prog-card:nth-child(3)::before { background: linear-gradient(90deg, #e67e22, #f39c12); }
+    .prog-card:nth-child(4)::before { background: linear-gradient(90deg, #8e44ad, #9b59b6); }
+    .prog-icon { font-size: 40px; margin-bottom: 12px; }
+    .prog-name { font-size: 18px; font-weight: 800; color: #1a3a5c; margin-bottom: 10px; }
+    .prog-tag {
       display: inline-block;
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
       background: #eef4fb;
       color: #0f6b8a;
-      padding: 4px 10px;
+      padding: 3px 10px;
       border-radius: 20px;
       margin-bottom: 12px;
+      font-weight: 600;
     }
-    .step-card .icon { font-size: 32px; margin-bottom: 10px; }
-    .step-card h3 { font-size: 16px; font-weight: 800; color: #1a3a5c; margin-bottom: 8px; }
-    .step-card p { font-size: 13px; color: #666; line-height: 1.6; }
-
-    /* ── GROWTH ARROW ── */
-    .growth-bar {
-      background: white;
-      border-radius: 20px;
-      padding: 32px 28px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-      margin-top: 32px;
-      text-align: center;
+    .prog-desc { font-size: 13px; color: #666; line-height: 1.7; }
+    .prog-features {
+      margin-top: 14px;
+      text-align: left;
+      list-style: none;
     }
-    .growth-bar h3 { font-size: 16px; font-weight: 700; color: #1a3a5c; margin-bottom: 20px; }
-    .growth-flow {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
+    .prog-features li {
+      font-size: 13px;
+      color: #555;
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
     }
-    .growth-pill {
-      background: linear-gradient(135deg, #0f6b8a, #14a88e);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-size: 14px;
+    .prog-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #14a88e;
       font-weight: 700;
     }
-    .arrow { font-size: 20px; color: #0f6b8a; }
+
+    /* ── BENEFITS ── */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .benefit-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 28px 16px;
+      text-align: center;
+    }
+    .benefit-card .icon { font-size: 32px; margin-bottom: 10px; }
+    .benefit-card h4 { font-size: 14px; font-weight: 700; color: #ffd166; margin-bottom: 6px; }
+    .benefit-card p { font-size: 12px; opacity: 0.8; line-height: 1.6; }
+
+    /* ── 2028 SECTION ── */
+    .year2028 {
+      background: linear-gradient(135deg, #1a3a5c, #152d47);
+      color: white;
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .year2028 h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 900; margin-bottom: 12px; }
+    .year2028 h2 span { color: #ffd166; }
+    .year2028 p { font-size: 15px; opacity: 0.8; max-width: 540px; margin: 0 auto 40px; line-height: 1.8; }
+    .pillars {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 20px 24px;
+      min-width: 140px;
+      text-align: center;
+    }
+    .pillar .icon { font-size: 28px; margin-bottom: 8px; }
+    .pillar p { font-size: 14px; font-weight: 700; color: #ffd166; }
 
     /* ── CTA ── */
     .cta-section {
-      background: linear-gradient(135deg, #ffd166, #ffb347);
+      background: linear-gradient(135deg, #ff6b35, #f7b731);
       text-align: center;
       padding: 72px 24px;
     }
     .cta-section h2 {
-      font-size: clamp(24px, 5vw, 36px);
+      font-size: clamp(22px, 4vw, 38px);
       font-weight: 900;
-      color: #1a3a5c;
-      margin-bottom: 12px;
+      color: #1a1a2e;
+      margin-bottom: 8px;
     }
-    .cta-section p {
+    .cta-section .cta-sub {
       font-size: 16px;
-      color: #2c4a6e;
-      margin-bottom: 32px;
+      color: #2c3e50;
+      margin-bottom: 36px;
+      font-weight: 500;
     }
-    .cta-phone {
+    .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .cta-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #1a3a5c;
-      color: white;
-      padding: 18px 40px;
+      padding: 18px 36px;
       border-radius: 50px;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 900;
-      letter-spacing: 1px;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(26,58,92,0.3);
-      transition: transform .2s, box-shadow .2s;
+      letter-spacing: -0.5px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      transition: transform .2s;
     }
-    .cta-phone:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(26,58,92,0.4);
-    }
+    .cta-btn:hover { transform: translateY(-3px); }
+    .cta-btn-main { background: #1a3a5c; color: white; }
+    .cta-btn-sub { background: white; color: #1a3a5c; }
 
     /* ── FOOTER ── */
     footer {
-      background: #1a1a2e;
-      color: rgba(255,255,255,0.5);
+      background: #111827;
+      color: rgba(255,255,255,0.45);
       text-align: center;
-      padding: 28px 24px;
+      padding: 32px 24px;
       font-size: 13px;
+      line-height: 1.9;
     }
     footer strong { color: white; }
 
-    @media (max-width: 480px) {
-      .hero-stats { gap: 24px; }
-      .growth-flow { gap: 6px; }
-      .growth-pill { font-size: 12px; padding: 8px 14px; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero { flex-direction: column; min-height: auto; }
+      .hero-left { padding: 48px 24px; }
+      .hero-right { width: 100%; height: 280px; }
+      .life-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-badge">✦ 성공경험자 ✦</div>
-  <h1>이정의 <span>본부장</span></h1>
-  <p class="sub">1인 학원 최적화 코칭 시스템 전문가</p>
-  <div class="hero-stats">
-    <div class="stat"><span class="num">22년</span><span class="label">현장 경력</span></div>
-    <div class="stat"><span class="num">전국 1위</span><span class="label">가맹원장 달성</span></div>
-    <div class="stat"><span class="num">4단계</span><span class="label">검증된 코칭 시스템</span></div>
+  <div class="hero-left">
+    <div class="hero-badge">✦ 성공경험자 · 22년 현장 경력 ✦</div>
+    <h1>이정의 <span>지사장</span></h1>
+    <p class="title-sub">1인 학원 최적화 코칭 시스템 전문가</p>
+    <p class="hero-desc">
+      직접 경험하고 검증한 시스템을 공유합니다.<br>
+      현장에서 검증된 시스템만이 원장님의 시간과 성과를 바꿉니다.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><span class="num">22년</span><span class="label">교육 현장 경력</span></div>
+      <div class="stat"><span class="num">전국 1위</span><span class="label">가맹원장 달성</span></div>
+      <div class="stat"><span class="num">4가지</span><span class="label">검증된 프로그램</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="KakaoTalk_20260617_212013127.png" alt="이정의 지사장" />
   </div>
 </section>
 
-<!-- STORY -->
-<div style="background:white;">
+<!-- ── STORY ── -->
+<div class="bg-white">
   <div class="section">
-    <h2 class="section-title">이정의 본부장의 이야기</h2>
-    <p class="section-desc">화려한 스펙이 아닌, 실패와 버팀으로 만들어 온<br>진짜 현장의 22년입니다.</p>
-
+    <h2 class="section-title">이정의 지사장의 <span>이야기</span></h2>
+    <p class="section-desc">화려한 스펙이 아닌, 실패와 버팀으로 만들어 온 진짜 현장의 22년입니다.</p>
     <div class="story-timeline">
       <div class="story-item">
         <div class="emoji">🍱</div>
@@ -322,7 +392,7 @@
       <div class="story-item">
         <div class="emoji">⏳</div>
         <h3>학습지 8년 · 공부방 6년 · 학원 8년</h3>
-        <p>총 22년. 무너질 것 같은 순간에도 버텼습니다. 그 시간이 지금의 이정의 본부장을 만들었습니다.</p>
+        <p>총 22년. 무너질 것 같은 순간에도 버텼습니다. 그 시간이 지금의 이정의 지사장을 만들었습니다.</p>
       </div>
       <div class="story-item">
         <div class="emoji">👑</div>
@@ -333,102 +403,179 @@
   </div>
 </div>
 
-<!-- QUOTE -->
-<section class="quote-section">
-  <blockquote>"망했다고 끝이 아닙니다.<br><span>버티면 반전은 반드시 옵니다.</span>"</blockquote>
-  <p class="author">— 이정의 본부장</p>
-</section>
+<!-- ── QUOTE ── -->
+<div class="bg-dark">
+  <div class="quote-wrap">
+    <blockquote>"망했다고 끝이 아닙니다.<br><span>버티면 반전은 반드시 옵니다.</span>"</blockquote>
+    <p class="author">— 이정의 지사장</p>
+  </div>
+</div>
 
-<!-- ACHIEVEMENT -->
-<div style="background:white;">
+<!-- ── LIFE ── -->
+<div class="bg-light">
   <div class="section">
-    <h2 class="section-title">22년이 만든 검증된 노하우</h2>
-    <p class="section-desc">현장에서 직접 부딪히며 쌓은 경험이 코칭의 힘입니다.</p>
-    <div class="achievement-grid">
-      <div class="achievement-card">
-        <div class="icon">📖</div>
-        <h3>학습지 교사 8년</h3>
-        <p>아이 한 명 한 명을 이해하는 개별 맞춤 학습의 시작</p>
+    <h2 class="section-title">삶이 있는 <span>학원</span></h2>
+    <p class="section-desc">주말도 없이 일하시나요? 그만할래요.<br>이제, 삶이 있는 학원을 만드세요.</p>
+    <div class="life-grid">
+      <div class="life-card">
+        <div class="icon-big">📅</div>
+        <h3>주 4일 수업</h3>
+        <p>금·토·일은 쉽니다! 원장님도 삶이 있어야 오래 갑니다.</p>
+        <div class="day-badges">
+          <span class="day-badge day-work">월 수업</span>
+          <span class="day-badge day-work">화 수업</span>
+          <span class="day-badge day-work">수 수업</span>
+          <span class="day-badge day-work">목 수업</span>
+          <span class="day-badge day-off">금 휴무</span>
+          <span class="day-badge day-off">토 휴무</span>
+          <span class="day-badge day-off">일 휴무</span>
+        </div>
       </div>
-      <div class="achievement-card">
-        <div class="icon">🏠</div>
-        <h3>공부방 운영 6년</h3>
-        <p>소규모 운영의 효율과 아이 성장을 동시에 잡는 경험</p>
-      </div>
-      <div class="achievement-card">
-        <div class="icon">🏫</div>
-        <h3>학원 운영 8년</h3>
-        <p>체계적 시스템으로 성과를 만들어 낸 실전 노하우</p>
-      </div>
-      <div class="achievement-card">
-        <div class="icon">🥇</div>
-        <h3>전국 1등 가맹원장</h3>
-        <p>개인의 성공을 넘어 함께 성장하는 프랜차이즈 모델 완성</p>
+      <div class="life-card">
+        <div class="icon-big">🕐</div>
+        <h3>원장의 하루</h3>
+        <p>딱! 이 시간만 일합니다. 일과 삶의 균형이 가능합니다.</p>
+        <div class="schedule-list">
+          <div class="schedule-row"><span class="stime">1:30</span><span class="slabel">🚶 출근 — 아이들 맞이 준비</span></div>
+          <div class="schedule-row"><span class="stime">2:00</span><span class="slabel">📖 수업 시작 — 집중형 맞춤 수업</span></div>
+          <div class="schedule-row"><span class="stime">6:00</span><span class="slabel">🔔 수업 종료 — 아이들 마무리</span></div>
+          <div class="schedule-row"><span class="stime">6:10</span><span class="slabel">🏠 퇴근 — 가족과의 시간</span></div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- STEPS -->
-<section class="steps-bg">
+<!-- ── PROGRAMS ── -->
+<div class="bg-white">
   <div class="section">
-    <h2 class="section-title">1인 학원 최적화 코칭 시스템</h2>
-    <p class="section-desc">체계적인 4단계로 아이의 성장을 완성합니다.<br>개별 맞춤 코칭으로 아이의 잠재력을 최고의 성과로!</p>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">STEP 01</div>
-        <div class="icon">💻</div>
-        <h3>바빠스마트클래스</h3>
-        <p>스스로 공부 습관을 만드는 스마트 학습</p>
+    <h2 class="section-title">검증된 <span>4가지 프로그램</span></h2>
+    <p class="section-desc">체계적인 4단계로 아이의 성장을 완성합니다.<br>원장님의 운영 부담은 낮추고, 학부모 만족도는 높입니다.</p>
+    <div class="programs-grid">
+      <div class="prog-card">
+        <div class="prog-icon">💻</div>
+        <div class="prog-name">바빠스마트클래스</div>
+        <span class="prog-tag">STEP 01</span>
+        <p class="prog-desc">스스로 공부 습관을 만드는 스마트 학습 시스템</p>
+        <ul class="prog-features">
+          <li>검증된 커리큘럼</li>
+          <li>수업 준비 부담 DOWN</li>
+          <li>안정적인 수익</li>
+          <li>본사 1:1 맞춤 지원</li>
+          <li>문해력 + 수학 둘 다 운영</li>
+        </ul>
       </div>
-      <div class="step-card">
-        <div class="step-num">STEP 02</div>
-        <div class="icon">📚</div>
-        <h3>책통클럽</h3>
-        <p>독서로 키우는 문해력과 사고력</p>
+      <div class="prog-card">
+        <div class="prog-icon">📚</div>
+        <div class="prog-name">책통클럽</div>
+        <span class="prog-tag">STEP 02</span>
+        <p class="prog-desc">의미단위 정독으로 진짜 독해력을 키우는 훈련</p>
+        <ul class="prog-features">
+          <li>초1~고1 전 학년</li>
+          <li>정독·재독·탐구·서술 4단계</li>
+          <li>2028 대입 개편 대응</li>
+          <li>교과서 깊이 읽는 힘</li>
+          <li>남는 독서 습관 형성</li>
+        </ul>
       </div>
-      <div class="step-card">
-        <div class="step-num">STEP 03</div>
-        <div class="icon">📣</div>
-        <h3>휘파람</h3>
-        <p>교과 필수 어휘 학습<br>(사자성어·관용어·국사과정)</p>
+      <div class="prog-card">
+        <div class="prog-icon">📣</div>
+        <div class="prog-name">휘파람</div>
+        <span class="prog-tag">STEP 03</span>
+        <p class="prog-desc">교과 필수 어휘 완성 — 국어·과학·사회·수학·사자성어</p>
+        <ul class="prog-features">
+          <li>초등 1~6학년 교과 완벽 대비</li>
+          <li>사고력·독해력 동시 향상</li>
+          <li>학원·공부방·교습소 모두 가능</li>
+          <li>수업 효율 극대화</li>
+          <li>가맹비 66만원 (이벤트)</li>
+        </ul>
       </div>
-      <div class="step-card">
-        <div class="step-num">STEP 04</div>
-        <div class="icon">🏆</div>
-        <h3>공필왕</h3>
-        <p>공부의 기본기를 완성하는 3단계 프로그램</p>
-      </div>
-    </div>
-
-    <div class="growth-bar">
-      <h3>✨ 4단계를 통해 아이는 이렇게 성장합니다!</h3>
-      <div class="growth-flow">
-        <div class="growth-pill">📝 공부습관</div>
-        <span class="arrow">→</span>
-        <div class="growth-pill">📖 문해력</div>
-        <span class="arrow">→</span>
-        <div class="growth-pill">💬 어휘력</div>
-        <span class="arrow">→</span>
-        <div class="growth-pill">📈 성적 향상</div>
-        <span class="arrow">→</span>
-        <div class="growth-pill">🌟 미래 성공</div>
+      <div class="prog-card">
+        <div class="prog-icon">🏆</div>
+        <div class="prog-name">공필왕</div>
+        <span class="prog-tag">STEP 04</span>
+        <p class="prog-desc">이해의 힘 + 기억의 힘 — 진짜 공부 기본기 완성</p>
+        <ul class="prog-features">
+          <li>공필왕 (이해·구조화·개념)</li>
+          <li>암기왕 (반복·기억·실전 적용)</li>
+          <li>교과서 완전 학습</li>
+          <li>자기주도 학습 습관</li>
+          <li>성적 향상 직결</li>
+        </ul>
       </div>
     </div>
   </div>
+</div>
+
+<!-- ── BENEFITS ── -->
+<div class="bg-dark">
+  <div class="section">
+    <h2 class="section-title" style="color:white;">함께하면 <span style="color:#ffd166;">이런 지원</span>을 받습니다</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.7);">가입 후 혼자가 아닙니다. 본사가 함께 성장합니다.</p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="icon">📖</div>
+        <h4>교육 지원</h4>
+        <p>교재 및 교안 제공, 정기 연수 및 교육, 최신 교육 트렌드 공유</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon">💼</div>
+        <h4>운영 지원</h4>
+        <p>학원 운영 매뉴얼 제공, 홍보 및 마케팅 지원, 상담 및 운영 컨설팅</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon">📣</div>
+        <h4>마케팅 지원</h4>
+        <p>온/오프라인 홍보물, 이벤트 및 프로모션, 브랜드 마케팅 지원</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon">🎧</div>
+        <h4>1:1 맞춤 지원</h4>
+        <p>담당 매니저 배정, 정기 방문 및 피드백, 신속한 문제 해결</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon">🌱</div>
+        <h4>지속적인 성장</h4>
+        <p>신규 프로그램 개발, 성공 사례 공유, 원장 커뮤니티 운영</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon">🤝</div>
+        <h4>성공 파트너십</h4>
+        <p>성공을 위한 동반자, 함께 성장하는 미래, 든든한 본사 지원</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 2028 ── -->
+<section class="year2028">
+  <h2>2028 대입 개편,<br><span>결국 기본기가 답입니다</span></h2>
+  <p>2028 대입 개편의 핵심은 '읽는 힘, 이해하는 힘, 기본기'입니다.<br>입시는 계속 바뀌지만, 기본기는 바뀌지 않습니다.</p>
+  <div class="pillars">
+    <div class="pillar"><div class="icon">📘</div><p>교과서 깊이<br>읽는 힘</p></div>
+    <div class="pillar"><div class="icon">💡</div><p>어휘력과<br>이해력</p></div>
+    <div class="pillar"><div class="icon">✏️</div><p>기록하는<br>습관</p></div>
+    <div class="pillar"><div class="icon">🧠</div><p>스스로<br>공부하는 힘</p></div>
+  </div>
 </section>
 
-<!-- CTA -->
+<!-- ── CTA ── -->
 <section class="cta-section">
-  <h2>단계별 코칭으로<br>스스로 공부하는 아이로!</h2>
-  <p>가입 문의 및 상담은 언제든 연락주세요.</p>
-  <a href="tel:01045334675" class="cta-phone">📞 010-4533-4675</a>
+  <h2>1인 학원장 월 1000 수익!<br>현실입니다.</h2>
+  <p class="cta-sub">22년 교육사업경력 성공경험자의 컨설팅 · 책·커·세 전국 가맹본부</p>
+  <div class="cta-btns">
+    <a href="tel:01045334675" class="cta-btn cta-btn-main">📞 010-4533-4675</a>
+    <a href="tel:01045904675" class="cta-btn cta-btn-sub">📞 010-4590-4675</a>
+  </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ── FOOTER ── -->
 <footer>
-  <strong>이정의 본부장</strong> &nbsp;|&nbsp; 성공경험자 · 22년 경력 &nbsp;|&nbsp; 1인 학원 최적화 코칭 시스템<br>
-  <span style="margin-top:6px;display:block;">검증된 시스템으로 학원 운영의 효율과 아이의 성장을 동시에!</span>
+  <strong>이정의 지사장</strong> | 성공경험자 · 22년 현장 경력<br>
+  바빠스마트클래스 · 책통클럽 · 휘파람 · 공필왕<br>
+  상담 문의 010-4533-4675 / 010-4590-4675<br>
+  <span style="margin-top:8px;display:block;font-size:12px;">검증된 시스템으로 학원 운영의 효율과 아이의 성장을 동시에!</span>
 </footer>
 
 </body>

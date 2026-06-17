@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"C:\\\\Users\\\\justi\\\\Desktop\\\\바이브코딩\\\\.claude\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(gh --version)",
+      "PowerShell(gh --version)",
+      "Read(//c/Users/justi/AppData/Local/Microsoft/**)",
+      "Read(//c/Program Files/GitHub CLI/**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth login --hostname github.com --git-protocol https --web)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo create jungwuilee --public --source=. --push)"
+    ]
+  }
+}
