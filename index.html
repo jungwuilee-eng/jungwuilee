@@ -220,23 +220,21 @@
     .year2028 h2 span { color: #ffd166; }
     .year2028 p { font-size: 15px; opacity: 0.8; max-width: 540px; margin: 0 auto 40px; line-height: 1.8; }
     .pillars {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      max-width: 700px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 860px;
       margin: 0 auto;
     }
     .pillar {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 16px;
-      padding: 20px 24px;
-      min-width: 140px;
+      padding: 24px 16px;
       text-align: center;
     }
-    .pillar .icon { font-size: 28px; margin-bottom: 8px; }
-    .pillar p { font-size: 14px; font-weight: 700; color: #ffd166; }
+    .pillar .icon { font-size: 32px; margin-bottom: 10px; }
+    .pillar p { font-size: 15px; font-weight: 700; color: #ffd166; line-height: 1.5; }
 
     /* ── CTA ── */
     .cta-section {
