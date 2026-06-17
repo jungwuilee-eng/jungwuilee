@@ -21,70 +21,14 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, #1a3a5c 0%, #0f6b8a 60%, #14a88e 100%);
-      color: white;
-      padding: 0;
-      display: flex;
-      align-items: stretch;
-      min-height: 520px;
-      overflow: hidden;
-    }
-    .hero-left {
-      flex: 1;
-      padding: 64px 48px 64px 10%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 30px;
-      padding: 6px 18px;
-      font-size: 13px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      width: fit-content;
-    }
-    .hero h1 {
-      font-size: clamp(36px, 5vw, 58px);
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 10px;
-    }
-    .hero h1 span { color: #ffd166; }
-    .hero .title-sub {
-      font-size: 18px;
-      font-weight: 500;
-      opacity: 0.85;
-      margin-bottom: 28px;
-    }
-    .hero-desc {
-      font-size: 15px;
-      opacity: 0.75;
-      line-height: 1.8;
-      margin-bottom: 36px;
-      max-width: 420px;
-    }
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .stat .num { font-size: 32px; font-weight: 900; color: #ffd166; display: block; }
-    .stat .label { font-size: 12px; opacity: 0.75; margin-top: 2px; }
-    .hero-right {
-      width: 340px;
-      flex-shrink: 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-right img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
+      display: block;
+      line-height: 0;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* ── COMMON ── */
@@ -354,23 +298,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-badge">✦ 성공경험자 · 22년 현장 경력 ✦</div>
-    <h1>이정의 <span>지사장</span></h1>
-    <p class="title-sub">1인 학원 최적화 코칭 시스템 전문가</p>
-    <p class="hero-desc">
-      직접 경험하고 검증한 시스템을 공유합니다.<br>
-      현장에서 검증된 시스템만이 원장님의 시간과 성과를 바꿉니다.
-    </p>
-    <div class="hero-stats">
-      <div class="stat"><span class="num">22년</span><span class="label">교육 현장 경력</span></div>
-      <div class="stat"><span class="num">전국 1위</span><span class="label">가맹원장 달성</span></div>
-      <div class="stat"><span class="num">4가지</span><span class="label">검증된 프로그램</span></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <img src="KakaoTalk_20260617_212013127.png" alt="이정의 지사장" />
-  </div>
+  <img src="KakaoTalk_20260617_212013127.png" alt="성공경험자 이정의 지사장" />
 </section>
 
 <!-- ── STORY ── -->
