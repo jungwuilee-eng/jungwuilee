@@ -108,13 +108,16 @@
     }
     @media (max-width: 768px) {
       /* 히어로 */
-      .hero { flex-direction: column; }
-      .hero-inner { flex-direction: column; padding: 0; }
-      .hero-side { width: 100%; padding: 28px 20px; align-items: center; text-align: center; justify-content: center; gap: 16px; }
+      .hero { flex-direction: column; min-height: 100svh; justify-content: center; }
+      .hero-inner { flex-direction: column; padding: 0; width: 100%; }
+      .hero-side { width: 100%; padding: 16px 20px; align-items: center; text-align: center; justify-content: center; gap: 10px; }
       .hero-side-left { order: 2; }
-      .hero-img { width: 100%; order: 1; }
-      .hero-side .stat-row { align-items: center; }
-      .stat-item { font-size: 13px; padding: 8px 14px; }
+      .hero-img { width: 100%; max-width: 320px; margin: 0 auto; order: 1; }
+      .hero-side h2 { font-size: 18px; margin-bottom: 6px; }
+      .hero-side p { font-size: 12px; }
+      .hero-side .tag { font-size: 11px; margin-bottom: 8px; }
+      .hero-side .stat-row { align-items: center; gap: 6px; margin-top: 10px; }
+      .stat-item { font-size: 12px; padding: 7px 12px; }
 
       /* 섹션 공통 */
       .section { padding: 48px 16px; }
