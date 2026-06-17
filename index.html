@@ -29,9 +29,18 @@
       gap: 0;
       overflow: hidden;
     }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+    }
     .hero-side {
-      flex: 1;
-      padding: 48px 40px;
+      width: 340px;
+      flex-shrink: 0;
+      padding: 48px 36px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -395,6 +404,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
+  <div class="hero-inner">
   <div class="hero-side hero-side-left">
     <span class="tag">✦ 성공경험자 ✦</span>
     <h2>수많은 시행착오를 거쳐<br>완성한 <span>1인 학원의<br>성공 시스템</span></h2>
@@ -407,6 +417,7 @@
   </div>
   <div class="hero-img">
     <img src="KakaoTalk_20260617_212013127.png" alt="성공경험자 이정의 지사장" />
+  </div>
   </div>
 </section>
 
