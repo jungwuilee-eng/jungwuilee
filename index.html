@@ -257,16 +257,33 @@
       font-weight: 500;
     }
     .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .cta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .cta-tags span {
+      background: rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.5);
+      color: #1a1a2e;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
     .cta-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 18px 36px;
+      padding: 22px 52px;
       border-radius: 50px;
-      font-size: 18px;
+      font-size: 28px;
       font-weight: 900;
-      letter-spacing: -0.5px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      letter-spacing: 0px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
       transition: transform .2s;
     }
     .cta-btn:hover { transform: translateY(-3px); }
@@ -490,7 +507,13 @@
 <!-- ── CTA ── -->
 <section class="cta-section">
   <h2>1인 학원장 월 1000 수익!<br>현실입니다.</h2>
-  <p class="cta-sub">22년 교육사업경력 성공경험자의 컨설팅 · 책·커·세 전국 가맹본부</p>
+  <div class="cta-tags">
+    <span>22년 교육사업 성공경험자의 컨설팅</span>
+    <span>책통클럽 전국 가입 지사장</span>
+    <span>공필왕 전국 가입 본부장</span>
+    <span>휘파람 전국 가입 본부장</span>
+    <span>바빠 스마트클래스 전국 가입 지사장</span>
+  </div>
   <div class="cta-btns">
     <a href="tel:01045334675" class="cta-btn cta-btn-main">📞 010-4533-4675</a>
   </div>
