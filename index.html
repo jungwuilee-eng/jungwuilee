@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>이정의 지사장 | 1인 학원 성공 코칭</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -444,6 +445,98 @@
       .hero-right { width: 100%; height: 280px; }
       .life-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── 반응형 추가 보완 ── */
+    @media (max-width: 768px) {
+      .life-card h3 { font-size: 18px; }
+      .life-card p { font-size: 15px; }
+      .schedule-row { font-size: 14px; }
+      .stime { font-size: 14px; }
+      .slabel { font-size: 14px; }
+      .day-badge { font-size: 12px; padding: 5px 12px; }
+      .prog-desc { font-size: 14px; }
+      .prog-features li { font-size: 13px; }
+      .cta-tags { gap: 6px; }
+      .cta-tags span { font-size: 12px; padding: 5px 10px; }
+      footer { font-size: 13px; line-height: 2; }
+    }
+
+    /* ── 커스텀 커서 (데스크탑만) ── */
+    @media (hover: hover) and (pointer: fine) {
+      *, *::before, *::after { cursor: none !important; }
+      #cursor-ring {
+        position: fixed;
+        width: 34px; height: 34px;
+        border: 2px solid #1a3a5c;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transform: translate(-50%, -50%);
+        transition: width .25s, height .25s, border-color .25s, background .25s, opacity .25s;
+        mix-blend-mode: multiply;
+      }
+      #cursor-ring.hover {
+        width: 52px; height: 52px;
+        border-color: #ffd166;
+        background: rgba(255,209,102,0.18);
+      }
+      #cursor-dot {
+        position: fixed;
+        width: 7px; height: 7px;
+        background: #ffd166;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 100000;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 6px rgba(255,209,102,0.8);
+      }
+    }
+
+    /* ── 파티클 ── */
+    .cursor-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99998;
+      font-size: 11px;
+      transform: translate(-50%, -50%);
+      animation: particleFloat .9s ease-out forwards;
+      user-select: none;
+    }
+    @keyframes particleFloat {
+      0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -160%) scale(0.4); }
+    }
+
+    /* ── 클릭 별 ── */
+    .click-star {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99998;
+      font-size: 13px;
+      transform: translate(-50%, -50%);
+      animation: starBurst .7s ease-out forwards;
+      user-select: none;
+    }
+    @keyframes starBurst {
+      0%   { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0); }
+    }
+
+    /* ── 클릭 리플 ── */
+    .click-ripple {
+      position: fixed;
+      width: 0; height: 0;
+      border: 2.5px solid #ffd166;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99997;
+      transform: translate(-50%, -50%);
+      animation: rippleExpand .55s ease-out forwards;
+    }
+    @keyframes rippleExpand {
+      0%   { width: 0;    height: 0;    opacity: .9; }
+      100% { width: 90px; height: 90px; opacity: 0;  }
+    }
   </style>
 </head>
 <body>
@@ -677,5 +770,88 @@
   <span style="margin-top:8px;display:block;font-size:12px;">검증된 시스템으로 학원 운영의 효율과 아이의 성장을 동시에!</span>
 </footer>
 
+<script>
+(function() {
+  // 터치 기기는 커서 효과 미적용
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  // 커서 요소 생성
+  const ring = document.createElement('div');
+  ring.id = 'cursor-ring';
+  const dot = document.createElement('div');
+  dot.id = 'cursor-dot';
+  document.body.appendChild(ring);
+  document.body.appendChild(dot);
+
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+    if (Math.random() < 0.18) spawnParticle(mx, my);
+  });
+
+  // 링 부드럽게 따라오기
+  (function loopRing() {
+    rx += (mx - rx) * 0.14;
+    ry += (my - ry) * 0.14;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(loopRing);
+  })();
+
+  // 호버 확대
+  document.querySelectorAll('a, button, .prog-card, .life-card, .benefit-card, .pillar, .cta-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+  });
+
+  // 파티클 (별 + 반짝이)
+  const SYMBOLS = ['✦','✧','✦','✧','·'];
+  const COLORS  = ['#ffd166','#0f6b8a','#ffd166','#c8960c','#14a88e'];
+  function spawnParticle(x, y) {
+    const p = document.createElement('span');
+    p.className = 'cursor-particle';
+    p.textContent = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+    p.style.left  = (x + (Math.random() - .5) * 10) + 'px';
+    p.style.top   = (y + (Math.random() - .5) * 10) + 'px';
+    p.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    p.style.fontSize = (9 + Math.random() * 6) + 'px';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 900);
+  }
+
+  // 클릭 효과
+  document.addEventListener('click', e => {
+    spawnRipple(e.clientX, e.clientY);
+    for (let i = 0; i < 7; i++) spawnClickStar(e.clientX, e.clientY, i, 7);
+  });
+
+  function spawnRipple(x, y) {
+    const r = document.createElement('div');
+    r.className = 'click-ripple';
+    r.style.left = x + 'px';
+    r.style.top  = y + 'px';
+    document.body.appendChild(r);
+    setTimeout(() => r.remove(), 600);
+  }
+
+  function spawnClickStar(x, y, i, total) {
+    const el = document.createElement('span');
+    el.className = 'click-star';
+    el.textContent = ['✦','★','✧','✦','★','✧','✦'][i];
+    el.style.left  = x + 'px';
+    el.style.top   = y + 'px';
+    el.style.color = i % 2 === 0 ? '#ffd166' : '#1a3a5c';
+    const angle = (i / total) * Math.PI * 2;
+    const dist  = 36 + Math.random() * 28;
+    el.style.setProperty('--tx', (Math.cos(angle) * dist) + 'px');
+    el.style.setProperty('--ty', (Math.sin(angle) * dist) + 'px');
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 750);
+  }
+})();
+</script>
 </body>
 </html>
