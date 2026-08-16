@@ -110,6 +110,20 @@
       white-space: normal;
       text-align: left;
       transition: transform .2s, box-shadow .2s;
+      animation: bookCtaPulse 1.35s ease-in-out infinite;
+    }
+    @keyframes bookCtaPulse {
+      0%, 100% {
+        filter: brightness(1);
+        box-shadow: 0 8px 22px rgba(200, 150, 12, 0.25), 0 0 0 0 rgba(255, 209, 102, 0.55);
+      }
+      50% {
+        filter: brightness(1.13);
+        box-shadow: 0 12px 30px rgba(200, 150, 12, 0.5), 0 0 0 7px rgba(255, 209, 102, 0.12);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .book-cta { animation: none; }
     }
     .book-cta:hover {
       transform: translateY(-3px);
@@ -118,18 +132,6 @@
     .book-cta-copy { display: flex; flex-direction: column; line-height: 1.35; }
     .book-cta-copy strong { font-size: 15px; font-weight: 900; }
     .book-cta-copy small { font-size: 11px; color: #66500b; font-weight: 700; }
-    .book-cta > .si {
-      display: inline-block;
-      transform-origin: center;
-      animation: bookIconBlink 1.25s ease-in-out infinite;
-    }
-    @keyframes bookIconBlink {
-      0%, 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 0 rgba(255,255,255,0)); }
-      50% { opacity: 0.38; transform: scale(1.16); filter: drop-shadow(0 0 7px rgba(255,255,255,0.95)); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .book-cta > .si { animation: none; }
-    }
     .book-cta-arrow {
       margin-left: auto;
       width: 26px;
