@@ -504,6 +504,34 @@
       footer { font-size: 13px; line-height: 2; }
     }
 
+    /* ── TEXT OVERFLOW SAFETY ── */
+    h1, h2, h3, h4, p, span, a, li {
+      overflow-wrap: anywhere;
+    }
+    .hero-inner, .hero-side, .stat-row, .section, .life-card, .prog-card, .benefit-card {
+      min-width: 0;
+    }
+    .hero-side .stat-row { width: 100%; }
+    .stat-item { max-width: 100%; white-space: normal; }
+    .book-cta-copy { min-width: 0; }
+    .book-cta-copy strong, .book-cta-copy small { white-space: normal; }
+    .quote-wrap blockquote { padding: 0 8px; }
+    @media (max-width: 768px) {
+      body { word-break: keep-all; overflow-wrap: anywhere; }
+      .hero-inner { padding: 0 8px; }
+      .hero-side { max-width: 100%; }
+      .hero-side h2, .hero-side p { width: 100%; }
+      .stat-row { width: 100%; max-width: 360px; }
+      .stat-item { width: 100%; justify-content: center; text-align: center; }
+      .book-cta { text-align: left; padding: 12px 14px; }
+      .book-cta-copy strong { font-size: 14px; }
+      .book-cta-copy small { font-size: 10px; }
+      .quote-wrap blockquote { font-size: clamp(18px, 5.5vw, 24px); }
+      .cta-social-row { flex-wrap: wrap; width: 100%; }
+      .cta-social-row .cta-btn { flex: 1 1 120px; justify-content: center; min-width: 0; }
+      .footer-socials { flex-wrap: wrap; white-space: normal; }
+    }
+
     /* ── 커스텀 커서 (데스크탑만) ── */
     @media (hover: hover) and (pointer: fine) {
       *, *::before, *::after { cursor: none !important; }
