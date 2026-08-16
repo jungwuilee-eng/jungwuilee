@@ -426,6 +426,9 @@
     .cta-btn:hover { transform: translateY(-3px); }
     .cta-btn-main { background: #1a3a5c; color: white; }
     .cta-btn-sub { background: white; color: #1a3a5c; }
+    .cta-phone-row { display: flex; justify-content: center; margin-bottom: 16px; }
+    .cta-social-row { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: nowrap; }
+    .cta-social-row .cta-btn { padding: 13px 22px; font-size: 15px; box-shadow: 0 5px 16px rgba(0,0,0,0.14); }
 
     /* ── FOOTER ── */
     footer {
@@ -437,6 +440,9 @@
       line-height: 1.9;
     }
     footer strong { color: white; }
+    .footer-phone { margin: 10px 0 4px; font-size: 18px; font-weight: 800; color: white; }
+    .footer-socials { display: flex; justify-content: center; gap: 14px; white-space: nowrap; }
+    .footer-socials a { color: rgba(255,255,255,0.72); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
@@ -774,11 +780,13 @@
     <span>휘파람 전국 가입 본부장</span>
     <span>바빠 스마트클래스 전국 가입 지사장</span>
   </div>
-  <div class="cta-btns">
+  <div class="cta-phone-row">
     <a href="tel:01045334675" class="cta-btn cta-btn-main">📞 010-4533-4675</a>
+  </div>
+  <div class="cta-social-row" aria-label="연락처 및 SNS">
     <a href="mailto:jungwui2@naver.com" class="cta-btn cta-btn-sub">✉️ 이메일</a>
     <a href="https://www.instagram.com/booktongclub_premium" target="_blank" rel="noreferrer" class="cta-btn cta-btn-sub">◎ 인스타그램</a>
-    <a href="https://blog.naver.com/booktong_premium" target="_blank" rel="noreferrer" class="cta-btn cta-btn-sub">N 네이버 블로그</a>
+    <a href="https://blog.naver.com/booktong_premium" target="_blank" rel="noreferrer" class="cta-btn cta-btn-sub">N 블로그</a>
   </div>
 </section>
 
@@ -786,8 +794,12 @@
 <footer>
   <strong>이정의 본부장</strong> | 성공경험자 · 22년 현장 경력<br>
   바빠스마트클래스 · 책통클럽 · 휘파람 · 공필왕<br>
-  상담 010-4533-4675 · jungwui2@naver.com<br>
-  Instagram @booktongclub_premium · Blog booktong_premium<br>
+  <div class="footer-phone"><a href="tel:01045334675">📞 010-4533-4675</a></div>
+  <div class="footer-socials">
+    <a href="mailto:jungwui2@naver.com">✉️ 이메일</a>
+    <a href="https://www.instagram.com/booktongclub_premium" target="_blank" rel="noreferrer">◎ 인스타그램</a>
+    <a href="https://blog.naver.com/booktong_premium" target="_blank" rel="noreferrer">N 블로그</a>
+  </div>
   <span style="margin-top:8px;display:block;font-size:12px;">검증된 시스템으로 학원 운영의 효율과 아이의 성장을 동시에!</span>
 </footer>
 
