@@ -97,6 +97,40 @@
       white-space: nowrap;
     }
     .stat-item .si { font-size: 18px; }
+    .book-cta {
+      position: relative;
+      justify-content: center;
+      width: 100%;
+      margin-top: 4px;
+      padding: 14px 18px;
+      color: #172f4a;
+      background: linear-gradient(135deg, #ffe39a, #ffd166);
+      border: 1px solid rgba(200, 150, 12, 0.35);
+      box-shadow: 0 8px 22px rgba(200, 150, 12, 0.25);
+      white-space: normal;
+      text-align: left;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .book-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(200, 150, 12, 0.38);
+    }
+    .book-cta-copy { display: flex; flex-direction: column; line-height: 1.35; }
+    .book-cta-copy strong { font-size: 15px; font-weight: 900; }
+    .book-cta-copy small { font-size: 11px; color: #66500b; font-weight: 700; }
+    .book-cta-arrow {
+      margin-left: auto;
+      width: 26px;
+      height: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #1a3a5c;
+      color: white;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
     .hero-img {
       width: 480px;
       flex-shrink: 0;
@@ -560,7 +594,11 @@
     <div class="stat-row">
       <div class="stat-item"><span class="si">⏳</span> 22년 교육 현장 경력</div>
       <div class="stat-item"><span class="si">👑</span> 전국 1등 가맹 원장 출신</div>
-      <a class="stat-item" href="http://product.kyobobook.co.kr/detail/S000220453284" target="_blank" rel="noopener noreferrer" aria-label="교보문고에서 오십, 지금이 당신의 시작입니다 만나보기"><span class="si">✍️</span> 베스트셀러 작가 · 책 만나러 가기 ↗</a>
+      <a class="stat-item book-cta" href="http://product.kyobobook.co.kr/detail/S000220453284" target="_blank" rel="noopener noreferrer" aria-label="교보문고에서 오십, 지금이 당신의 시작입니다 만나보기">
+        <span class="si">📖</span>
+        <span class="book-cta-copy"><strong>베스트셀러 책 만나러 가기</strong><small>『오십, 지금이 당신의 시작입니다』</small></span>
+        <span class="book-cta-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
   <div class="hero-img">
@@ -607,7 +645,7 @@
 <!-- ── QUOTE ── -->
 <div class="bg-dark">
   <div class="quote-wrap">
-    <blockquote>"망했다고 끝이 아닙니다.<br><span>버티면 반전은 반드시 옵니다.</span>"</blockquote>
+    <blockquote>"아직도 남의 허락을 기다리며<br>문 밖에서 서성이나요?<br><span>이제는 당신 스스로를 허락하세요.</span>"</blockquote>
     <p class="author">— 이정의 본부장</p>
   </div>
 </div>
